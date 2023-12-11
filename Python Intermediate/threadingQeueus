@@ -1,0 +1,29 @@
+#Excellent for thread safe and process safe data exchanges
+#Linear data structure that follow the fifo or First in First Out principle
+#Example queue of customers waiting in line where customer that came first is also served first
+from queue import Queue
+
+# create queue
+q = Queue() #create queue object
+
+# add elements
+q.put(1) # 1
+q.put(2) # 2 1
+q.put(3) # 3 2 1 one is beginning of queue
+
+# now q looks like this:
+# back --> 3 2 1 --> front
+
+# get and remove first element
+first = q.get() # --> 1 #queue not only has three and two inside
+print(first) 
+
+#check if queue is empty
+#q.empty #returns true if queue is empty
+
+#when done processing should call
+# q.task_done() #tells program done processing and can continue
+# q.join() #blocks until all items in queue have been gotten and processed . 
+
+# q looks like this:
+# back --> 3 2 --> front
